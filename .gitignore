@@ -1,0 +1,13 @@
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/all-blob-reports/
+/playwright/.auth/
+/allure-results/
+/allure-report/
+/perf-report.html
+/perf-summary.json
+app/data/*.db*
+.env
+.DS_Store
