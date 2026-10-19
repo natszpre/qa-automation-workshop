@@ -1,0 +1,47 @@
+{
+  "name": "qa-automation-workshop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "From manual tester to automation guru - workshop exercises (Playwright + TypeScript)",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "doctor": "node scripts/doctor.mjs",
+    "app": "node --no-warnings app/server.mjs",
+    "app:chaos": "cross-env CHAOS_CLASSES=1 node --no-warnings app/server.mjs",
+    "app:slow": "cross-env SLOW_API=1 node --no-warnings app/server.mjs",
+    "app:bugs": "cross-env A11Y_BUGS=1 node --no-warnings app/server.mjs",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen http://localhost:3000/login",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "ex:02:chaos": "cross-env CHAOS_CLASSES=1 playwright test 02-locators",
+    "ex:13:flaky": "cross-env FLAKY=1 playwright test 13-flaky-hunt --repeat-each=20 --trace=retain-on-failure",
+    "ex:14:parallel": "playwright test 14-shared-state --fully-parallel --workers=4 --repeat-each=3",
+    "ex:15:break": "cross-env CONTRACT_BREAK=1 playwright test 15-over-mocking",
+    "ex:26:bugs": "cross-env A11Y_BUGS=1 playwright test 26-accessibility",
+    "ex:27:bugs": "cross-env A11Y_BUGS=1 playwright test 27-visual-regression",
+    "perf:load": "k6 run perf/load.js"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@faker-js/faker": "^10.6.0",
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.3.0",
+    "allure": "^3.0.0",
+    "allure-js-commons": "^3.3.0",
+    "allure-playwright": "^3.3.0",
+    "cross-env": "^10.0.0",
+    "dotenv": "^17.2.0",
+    "eslint": "^9.34.0",
+    "eslint-plugin-playwright": "^2.2.2",
+    "husky": "^9.1.7",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.41.0",
+    "zod": "^3.25.76"
+  }
+}

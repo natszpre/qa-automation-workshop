@@ -1,0 +1,3 @@
+[
+  { "case": "valid user", "email": "user@shop.test", "password": "User123!", "expectedError": null }
+]
